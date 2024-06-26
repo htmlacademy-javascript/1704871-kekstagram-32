@@ -1,8 +1,6 @@
 const POSTS_COUNT = 25;
 const PHOTO_URL_MIN_COUNT = 1;
 const PHOTO_URL_MAX_COUNT = 25;
-const PHOTO_ID_MIN_COUNT = 1;
-const PHOTO_ID_MAX_COUNT = 25;
 const LIKES_MIN_COUNT = 15;
 const LIKES_MAX_COUNT = 200;
 const COMMENTS_MIN_COUNT = 0;
@@ -41,17 +39,18 @@ const NAMES = [
 const getRandomInteger = (min, max) => Math.floor(min + Math.random() * (max + 1 - min));
 
 const generatePostComment = () => {
-  let userPostComment = {};
+  const userPostComment = {};
   userPostComment.id = getRandomInteger(1, 99999);
+  // eslint-disable-next-line prefer-template
   userPostComment.avatar = 'img/avatar' + getRandomInteger(1, 6) + '.svg';
   userPostComment.message = COMMENTS[getRandomInteger(0, COMMENTS.length - 1)];
   userPostComment.name = NAMES[getRandomInteger(0, NAMES.length - 1)];
   return userPostComment;
-}
+};
 
 const generatePostComments = () => {
-  let commentsCount = getRandomInteger(COMMENTS_MIN_COUNT, COMMENTS_MAX_COUNT);
-  let userPostComments = Array(commentsCount).fill('1');
+  const commentsCount = getRandomInteger(COMMENTS_MIN_COUNT, COMMENTS_MAX_COUNT);
+  const userPostComments = Array(commentsCount).fill('1');
   userPostComments.forEach((value, index, array) => {
     array[index] = generatePostComment();
   });
@@ -60,8 +59,9 @@ const generatePostComments = () => {
 
 
 const generatePost = () => {
-  let userPost = {};
+  const userPost = {};
   userPost.id = (ID += 1);
+  // eslint-disable-next-line prefer-template
   userPost.url = 'photos/' + getRandomInteger(PHOTO_URL_MIN_COUNT, PHOTO_URL_MAX_COUNT) + '.jpg';
   userPost.description = DESCRIPTIONS[getRandomInteger(0, DESCRIPTIONS.length - 1)];
   userPost.likes = getRandomInteger(LIKES_MIN_COUNT, LIKES_MAX_COUNT);
@@ -70,11 +70,11 @@ const generatePost = () => {
 };
 
 const generatePosts = () => {
-  let userPosts = Array(POSTS_COUNT).fill('1');
+  const userPosts = Array(POSTS_COUNT).fill('1');
   userPosts.forEach((value, index, array) => {
     array[index] = generatePost();
   });
   return userPosts;
 };
 
-console.log(generatePosts());
+generatePosts();
