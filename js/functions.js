@@ -1,19 +1,22 @@
-const checkStrokeLength = (stroke, count) => stroke.length >= count;
+/*
+'8:00' - начало рабочего дня
+'17:30' - конец рабочего дня
+'14:00' - начало встречи
+90 - продолжительность встречи в минутах
+*/
+// имяФункции('08:00', '17:30', '14:00', 90); // true
+// имяФункции('8:0', '10:0', '8:0', 120);     // true
+// имяФункции('08:00', '14:30', '14:00', 90); // false
+// имяФункции('14:00', '17:30', '08:0', 90);  // false
+// имяФункции('8:00', '17:30', '08:00', 900); // false
 
-checkStrokeLength('я помню чудное мгновенье', 20);
-
-const isPalindrome = (stroke) => {
-  stroke = stroke.replaceAll(' ', '').toLowerCase();
-  for (let i = 0; i <= stroke.length - 1 / 2; i++) {
-    if (stroke[i] !== stroke[stroke.length - i - 1]) {
-      return false;
-    }
-  }
-  return true;
+const convertTime = (time) => {
+  time = time.split(':');
+  return time;
 };
 
-isPalindrome('Ле2ша на полке клопа нашел');
+const checkTime = (startTime, endTime, startMeetingTime, meetingDuration) => {
 
-const convertToInteger = (stroke) => Math.round(Number(stroke.replace(/[^+\d]/g, '')));
+};
 
-convertToInteger('агент 007');
+console.log(convertTime('01:20'))
