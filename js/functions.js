@@ -1,22 +1,11 @@
-/*
-'8:00' - начало рабочего дня
-'17:30' - конец рабочего дня
-'14:00' - начало встречи
-90 - продолжительность встречи в минутах
-*/
-// имяФункции('08:00', '17:30', '14:00', 90); // true
-// имяФункции('8:0', '10:0', '8:0', 120);     // true
-// имяФункции('08:00', '14:30', '14:00', 90); // false
-// имяФункции('14:00', '17:30', '08:0', 90);  // false
-// имяФункции('8:00', '17:30', '08:00', 900); // false
+const convertTime = (time) => (parseInt((time.replaceAll(':', ',')), 10) * 60 + parseInt((time.split(':')[1]), 10));
 
-const convertTime = (time) => {
-  time = time.split(':');
-  return time;
+const analiseMeetingTime = (startTime, finishTime, startMeeting, duration) => {
+  if ((convertTime(startMeeting) + duration > convertTime(finishTime)) || (convertTime(startMeeting) < convertTime(startTime))) {
+    return 'false';
+  } else {
+    return 'true';
+  }
 };
 
-const checkTime = (startTime, endTime, startMeetingTime, meetingDuration) => {
-
-};
-
-console.log(convertTime('01:20'))
+analiseMeetingTime('14:00', '17:30', '08:0', 90);
