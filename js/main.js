@@ -1,3 +1,3 @@
-import {generatePosts} from './data.js';
+import { thumbnails } from './render-miniature.js';
 
-generatePosts();
+thumbnails();

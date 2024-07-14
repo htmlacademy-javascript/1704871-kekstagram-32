@@ -1,13 +1,21 @@
-// import {generatePosts} from './data.js';
+import {generatePosts} from './data.js';
 
-// const template = document.getElementById('picture');
+const container = document.querySelector('.pictures');
 
-// const createMiniature = () => {
-//   const templateClone = template.content.cloneNode('true');
-//   templateClone.url =
-// };
+const template = document.querySelector('#picture').content.querySelector('.picture');
 
-// const createMiniatures = () => {};
+const thumbnails = generatePosts();
 
-// console.log(template);
-// console.log(templateClone);
+const fragment = document.createDocumentFragment();
+
+thumbnails.forEach(({url, likes, comments}) => {
+  const pictureItem = template.cloneNode(true);
+  pictureItem.querySelector('.picture__img').src = url;
+  pictureItem.querySelector('.picture__likes').textContent = likes;
+  pictureItem.querySelector('.picture__comments').textContent = comments.length;
+  fragment.append(pictureItem);
+});
+
+container.append(fragment);
+
+export {thumbnails};
