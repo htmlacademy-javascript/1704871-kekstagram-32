@@ -66,7 +66,5 @@ const generatePosts = () => {
   return userPosts.map(() => generatePost());
 };
 
-generatePosts();
-
 export {generatePosts};
 
