@@ -1,3 +1,3 @@
-import { thumbnails } from './render-miniature.js';
+import { renderMiniatures } from './render-miniature.js';
 
-thumbnails();
+renderMiniatures();

@@ -16,6 +16,9 @@ thumbnails.forEach(({url, likes, comments}) => {
   fragment.append(pictureItem);
 });
 
-container.append(fragment);
+const renderMiniatures = () => {
+  container.append(fragment);
+  return thumbnails;
+};
 
-export {thumbnails};
+export {renderMiniatures};
