@@ -21,4 +21,4 @@ const renderMiniatures = () => {
   return thumbnails;
 };
 
-export {renderMiniatures};
+export {renderMiniatures, thumbnails};
