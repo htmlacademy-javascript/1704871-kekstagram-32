@@ -8,11 +8,14 @@ const thumbnails = generatePosts();
 
 const fragment = document.createDocumentFragment();
 
+let miniatureId = 1;
+
 thumbnails.forEach(({url, likes, comments}) => {
   const pictureItem = template.cloneNode(true);
   pictureItem.querySelector('.picture__img').src = url;
   pictureItem.querySelector('.picture__likes').textContent = likes;
   pictureItem.querySelector('.picture__comments').textContent = comments.length;
+  pictureItem.dataset.id = miniatureId++;
   fragment.append(pictureItem);
 });
 
