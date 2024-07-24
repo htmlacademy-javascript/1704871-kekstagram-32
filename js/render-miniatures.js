@@ -18,7 +18,7 @@ thumbnails.forEach(({url, likes, comments}) => {
   pictureItem.querySelector('.picture__comments').textContent = comments.length;
   pictureItem.dataset.id = miniatureId++;
 
-  pictureItem.addEventListener('click', () => renderBigPicture(pictureItem.dataset.id));
+  pictureItem.addEventListener('click', () => renderBigPicture(thumbnails[pictureItem.dataset.id]));
 
   fragment.append(pictureItem);
 });
