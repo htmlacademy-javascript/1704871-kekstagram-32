@@ -1,6 +1,5 @@
 import { thumbnails } from './render-miniatures.js';
 
-const miniatures = document.querySelectorAll('.picture');
 const bigPicture = document.querySelector('.big-picture');
 const bigPictureImg = document.querySelector('.big-picture__img img');
 const likesCount = document.querySelector('.likes-count');
@@ -11,6 +10,8 @@ const commentsContainer = document.querySelector('.social__comments');
 const commentsLoader = document.querySelector('.comments-loader');
 const commentsCount = document.querySelector('.social__comment-count');
 const cancelButton = document.querySelector('.big-picture__cancel');
+
+const COMMENTS_SHOWN_COUNT = 5;
 
 const addComments = (index) => {
   commentsContainer.innerHTML = '';
@@ -32,34 +33,30 @@ const addComments = (index) => {
   }
 };
 
-const renderBigPicture = (index) => {
-  bigPictureImg.src = thumbnails[index].url;
-  likesCount.textContent = thumbnails[index].likes;
-  commentsShown.textContent = 5;
-  commentsTotalCount.textContent = thumbnails[index].comments.length;
-  socialCaption.textContent = thumbnails[index].description;
-};
-
-const hideModal = () => {
+const closeModal = () => {
   bigPicture.classList.add('hidden');
-  cancelButton.removeEventListener('click', hideModal);
+  cancelButton.removeEventListener('click', closeModal);
 };
 
-const hideComments = () => {
+const hideCommentCounts = () => {
   commentsLoader.classList.add('hidden');
   commentsCount.classList.add('hidden');
 };
 
-const openModal = (indexof) => {
-  renderBigPicture(indexof);
-  hideComments();
-  addComments(indexof);
+const openModal = () => {
   bigPicture.classList.remove('hidden');
-  cancelButton.addEventListener('click', hideModal);
+  cancelButton.addEventListener('click', closeModal);
 };
 
-for (const item of miniatures) {
-  item.addEventListener('click', (event) => (
-    openModal(event.target.parentElement.dataset.id - 1)
-  ));
-}
+const renderBigPicture = (index) => {
+  bigPictureImg.src = thumbnails[index].url;
+  likesCount.textContent = thumbnails[index].likes;
+  commentsShown.textContent = COMMENTS_SHOWN_COUNT;
+  commentsTotalCount.textContent = thumbnails[index].comments.length;
+  socialCaption.textContent = thumbnails[index].description;
+  addComments(index);
+  hideCommentCounts();
+  openModal(index);
+};
+
+export {renderBigPicture};
