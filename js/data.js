@@ -39,7 +39,7 @@ const NAMES = [
 const generatePostComment = () => {
   const userPostComment = {};
   userPostComment.id = getRandomInteger(1, 99999);
-  userPostComment.avatar = `img/avatar${getRandomInteger(1, 6)}.svg`;
+  userPostComment.avatar = `img/avatar-${getRandomInteger(1, 6)}.svg`;
   userPostComment.message = COMMENTS[getRandomInteger(0, COMMENTS.length - 1)];
   userPostComment.name = NAMES[getRandomInteger(0, NAMES.length - 1)];
   return userPostComment;

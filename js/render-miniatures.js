@@ -1,4 +1,5 @@
 import {generatePosts} from './data.js';
+import { renderBigPicture } from './render-full-post.js';
 
 const container = document.querySelector('.pictures');
 
@@ -8,14 +9,23 @@ const thumbnails = generatePosts();
 
 const fragment = document.createDocumentFragment();
 
+let miniatureId = 0;
+
 thumbnails.forEach(({url, likes, comments}) => {
   const pictureItem = template.cloneNode(true);
   pictureItem.querySelector('.picture__img').src = url;
   pictureItem.querySelector('.picture__likes').textContent = likes;
   pictureItem.querySelector('.picture__comments').textContent = comments.length;
+  pictureItem.dataset.id = miniatureId++;
+
+  pictureItem.addEventListener('click', () => renderBigPicture(pictureItem.dataset.id));
+
   fragment.append(pictureItem);
 });
 
-container.append(fragment);
+const renderMiniatures = () => {
+  container.append(fragment);
+  return thumbnails;
+};
 
-export {thumbnails};
+export {renderMiniatures, thumbnails};
