@@ -1,6 +1,7 @@
 
 import {isEscape} from '../util.js';
 import {addValidators, pristineReset, pristineValidate} from './validate-form.js';
+import { scalePicture, resetScale } from './scale-picture.js';
 
 const uploadForm = document.querySelector('.img-upload__overlay');
 const uploadInput = document.querySelector('.img-upload__input');
@@ -36,6 +37,7 @@ function closeModal() {
   document.removeEventListener('keydown', onDocumentKeydown);
   uploadInput.addEventListener('change', onShowUploadForm);
   pristineReset();
+  resetScale();
 }
 
 function openModal() {
@@ -58,6 +60,7 @@ const onFormSubmit = (evt) => {
 const initForm = () => {
   uploadInput.addEventListener('change', onShowUploadForm);
   form.addEventListener('submit', onFormSubmit);
+  scalePicture();
   addValidators();
 };
 
