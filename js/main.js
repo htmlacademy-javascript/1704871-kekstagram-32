@@ -1,4 +1,4 @@
-import { renderMiniatures } from './render-miniatures.js';
+import { renderMiniatures } from './post/render-miniatures.js';
 import {initForm} from './form/form.js';
 
 renderMiniatures();
