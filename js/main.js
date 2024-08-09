@@ -1,6 +1,5 @@
-import { renderMiniatures } from './post/render-miniatures.js';
-import {initForm} from './form/form.js';
+import { initForm } from './form/create-form';
+import {getData} from './server/get-data.js';
 
-renderMiniatures();
 initForm();
-
+getData();

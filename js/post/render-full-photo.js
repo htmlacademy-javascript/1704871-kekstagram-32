@@ -1,4 +1,5 @@
-import {isEscape} from './util.js';
+
+import {isEscape} from '../utils/utils.js';
 
 const COMMENTS__SHOWN_COUNT = 5;
 const bigPicture = document.querySelector('.big-picture');
