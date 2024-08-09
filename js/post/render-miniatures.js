@@ -1,31 +1,26 @@
-import {generatePosts} from '../data.js';
-import { renderBigPicture } from './render-full-post.js';
+import { renderBigPicture } from './render-full-photo.js';
 
-const container = document.querySelector('.pictures');
+const pictureContainer = document.querySelector('.pictures');
 
-const template = document.querySelector('#picture').content.querySelector('.picture');
+const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 
-const thumbnails = generatePosts();
+const createPicture = (pictureData) => {
+  const pictureElement = pictureTemplate.cloneNode(true);
 
-const fragment = document.createDocumentFragment();
+  const pictureImg = pictureElement.querySelector('.picture__img');
 
-let miniatureId = 0;
+  pictureImg.src = pictureData.url;
+  pictureImg.alt = pictureData.description;
+  pictureElement.querySelector('.picture__likes').textContent = pictureData.likes;
+  pictureElement.querySelector('.picture__comments').textContent = pictureData.comments.length;
 
-thumbnails.forEach(({url, likes, comments}) => {
-  const pictureItem = template.cloneNode(true);
-  pictureItem.querySelector('.picture__img').src = url;
-  pictureItem.querySelector('.picture__likes').textContent = likes;
-  pictureItem.querySelector('.picture__comments').textContent = comments.length;
-  pictureItem.dataset.id = miniatureId++;
+  pictureImg.addEventListener('click', () => renderBigPicture(pictureData));
 
-  pictureItem.addEventListener('click', () => renderBigPicture(thumbnails[pictureItem.dataset.id]));
-
-  fragment.append(pictureItem);
-});
-
-const renderMiniatures = () => {
-  container.append(fragment);
-  return thumbnails;
+  pictureContainer.appendChild(pictureElement);
 };
 
-export {renderMiniatures, thumbnails};
+const createMiniatures = (pictures) => {
+  pictures.forEach((picture) => createPicture(picture));
+};
+
+export {createMiniatures};
