@@ -1,5 +1,5 @@
 
-import {isEscape} from '../util.js';
+import {isEscape} from '../util/util.js';
 import {addValidators, pristineReset, pristineValidate} from './validate-form.js';
 import { scalePicture, resetScale } from './scale-picture.js';
 

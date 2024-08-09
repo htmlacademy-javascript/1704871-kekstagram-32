@@ -1,4 +1,4 @@
-import {generatePosts} from './data.js';
+import {generatePosts} from '../data.js';
 import { renderBigPicture } from './render-full-post.js';
 
 const container = document.querySelector('.pictures');
