@@ -85,7 +85,7 @@ const onUploadImage = () => {
   openModal();
 };
 
-const initForm = () => {
+const startForm = () => {
   formUploadInput.addEventListener('change', onUploadImage);
   form.addEventListener('submit', onFormSubmit);
   addValidators();
@@ -94,4 +94,4 @@ const initForm = () => {
   formUploadInput.addEventListener('change', handleInputChange);
 };
 
-export { initForm, closeModal, setSubmitButtonState };
+export { startForm, closeModal, setSubmitButtonState };

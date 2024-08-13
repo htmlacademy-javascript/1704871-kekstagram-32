@@ -1,5 +1,5 @@
-import {initForm} from './form/create-form';
+import {startForm} from './form/create-form';
 import {getData} from './server/get-data.js';
 
-initForm();
+startForm();
 getData();
