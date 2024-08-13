@@ -42,3 +42,4 @@ const pristineReset = () => pristine.reset();
 const pristineValidate = () => pristine.validate();
 
 export {addValidators, pristineReset, pristineValidate};
+
