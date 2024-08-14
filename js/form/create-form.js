@@ -24,7 +24,7 @@ const onFormCancelUploadButtonClick = () => {
 };
 
 const onDocumentKeydown = (evt) => {
-  if (isEscape(evt) && !document.querySelector('.error') && !document.querySelector('.success')) {
+  if (isEscape(evt) && !document.querySelector('.error') && !document.querySelector('.success') && !document.querySelector('.focused')) {
     closeModal();
   }
 };
