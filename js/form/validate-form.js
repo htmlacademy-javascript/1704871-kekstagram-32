@@ -11,6 +11,11 @@ const uploadForm = document.querySelector('.img-upload__form');
 const textHashTags = document.querySelector('.text__hashtags');
 const textComments = document.querySelector('.text__description');
 
+textHashTags.addEventListener('focusin', () => textHashTags.classList.add('focused'));
+textHashTags.addEventListener('focusout', () => textHashTags.classList.remove('focused'));
+textComments.addEventListener('focusin', () => textComments.classList.add('focused'));
+textComments.addEventListener('focusout', () => textComments.classList.remove('focused'));
+
 const pristine = new Pristine(uploadForm, {
   classTo: 'img-upload__field-wrapper',
   errorTextParent: 'img-upload__field-wrapper',
