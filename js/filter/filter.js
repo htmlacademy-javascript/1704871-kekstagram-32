@@ -1,4 +1,4 @@
-import {createMiniatures} from '../post/render-miniatures.js';
+import {createMiniatures} from '../post/rendering-miniatures.js';
 import {getRandomArrayElement} from '../utils/utils.js';
 
 const MIN_RANDOM_COUNT = 0;

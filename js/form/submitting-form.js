@@ -1,4 +1,4 @@
-import { closeModal, setSubmitButtonState } from './create-form.js';
+import { closeModal, setSubmitButtonState } from './creating-form.js';
 import {isEscape} from '../utils/utils.js';
 
 const SERVER_URL = 'https://32.javascript.htmlacademy.pro/kekstagram';
