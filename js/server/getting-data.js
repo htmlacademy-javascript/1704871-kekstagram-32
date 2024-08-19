@@ -1,5 +1,5 @@
-import {createMiniatures} from '../post/render-miniatures.js';
-import { setFilters } from '../filter/set-filter.js';
+import {createMiniatures} from '../post/rendering-miniatures.js';
+import { setFilters } from '../filter/setting-filter.js';
 
 const SEND_SERVER_URL = 'https://32.javascript.htmlacademy.pro/kekstagram/data';
 const ALERT_DURATION_TIME = 5000;

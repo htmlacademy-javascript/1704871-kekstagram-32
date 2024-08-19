@@ -1,8 +1,8 @@
-import {scalePicture, resetScale} from './scale-added-picture.js';
+import {scalePicture, resetScale} from './scaling-added-picture.js';
 import {isEscape} from '../utils/utils.js';
-import {initSlider, resetSlider} from './add-effects.js';
-import {addValidators, pristineReset, pristineValidate} from './validate-form.js';
-import {uploadFormData} from './submit-form.js';
+import {initSlider, resetSlider} from './adding-effects.js';
+import {addValidators, pristineReset, pristineValidate} from './validating-form.js';
+import {uploadFormData} from './submitting-form.js';
 
 const DEFAULT_IMAGE = 'img/upload-default-image.jpg';
 const FILE_TYPES = ['.jpeg', '.jpg', '.svg', '.png'];
